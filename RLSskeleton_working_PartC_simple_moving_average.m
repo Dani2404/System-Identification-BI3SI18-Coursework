@@ -9,9 +9,7 @@ t = 1:236;
 LN = 100;
 Na = 2; % number of coefficients for the y values/a values
 Nb = 2; % number of cofficients for the u values/b values
-lambda = 0.5;
-num = [0 0.0416 0.0395]; % set to B --> theta(2) theta(3)
-den = [1 -1.5363 0.8607]; % set to A -->
+lambda = 1;
 
 % set input to step input u=ones(1,50)
 % set input to sine wave u=5*sin(1:.2:70)
@@ -20,18 +18,10 @@ filename = 'DataSetOneExchangeRateGDP-EURO(1).xls';
 sheet = 1;
 datarange = 'B98:B333';
 u = xlsread(filename, sheet, datarange);
-noise =0.01*randn(size(u));% Gaussian noise
-%digital filter slides across data and gives an average of data in that
-%window 
-% e.g. windowSize = 5; 
-% b = (1/windowSize)*ones(1,windowSize);
-% a = 1;
-%filter(a, b, data)
-y = filter(num, den, u); 
+noise =0.1*randn(size(u));% Gaussian noise
+y = filter(1, 1, u); 
 y1 = y + noise;
 y2 = zeros(m,n);
-
-
 % theta_nminus1=zeros(Na+Nb,1); % Initialise the estimate of theta to zero
 % C_nminus1=LN.*eye(Na+Nb);  % Initialise P where LN is a large number --> data 
 % % L_nminus1=LN*eye(Na+Nb);
@@ -78,7 +68,7 @@ for n=1:length(y1) % Change 10 to length(y) once you have the code working
   Theta =[Theta; theta'];
 end 
 
-x = linspace(1998, 2016, 236);
+x = linspace(1998, 2017, 236);
 % Recorded parameter evolution you can plot with
 figure(1);
 plot(Theta);
@@ -116,6 +106,12 @@ figure(4);
 % Plots actual output vs estimate output
 plot(u);
 hold on;
-plot(y);
+plot(y1);
 hold off;
+legend('Input','Filtered Output With Noise')
+shg;
+
+figure(5);
+% Plots actual output vs estimate output
+plot(u);
 shg;
