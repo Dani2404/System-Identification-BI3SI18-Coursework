@@ -1,21 +1,33 @@
+% A skeleton for a recursive identification algorithm. Since the assignment
+% assumes an ARX model this code does likewise.
+% You need to set Na, Nb (number of a and b coefficients) and LN (large 
+% number).  Nc is not needed if this is an ARX model. You also need to supply
+% the algorithm!
+% The code assumes that the data is in a vector y and the input is in a vector u
 Na = 2;%number of Y values
 Nb = 2;%number of u values
 LN = 10000000;
 %[B,A] = dord2;
 %num = B;
 %den = A;
+
+lambdaArray = [1, 0.95, 0.5, 0.2] ;
+
+for LambdaNumber = 1:4
+%num and den are the numerator and denominator of the filter(PID
+%controller)
 num = [0 0.0416 0.0395];
 den = [1 -1.5363 0.8607];
 u = 5 * sin(1:.2:70);
+%u = ones(1,50);
 noise = 0.01*randn(size(u)); %Change the varience in order to change nouse level, overall noise model should be 0 mean.
 %noise =0.1*rand(size(u)); %Use rand as varience not set to 1, 
 y = filter(num, den, u) + noise;
 
 theta_nminus1=zeros(Na+Nb,1); % Initialise the estimate of theta to zero --> Matrix of zeros
 P_nminus1=LN.*eye(Na+Nb);	 % Initialise P where LN is a large number --> Data 
-%Lambda = 1; %Initalise lambda, set to 1 for non-forgetting
-
-Lambda = 0.95; %Initaluse lambda set to 0.95 for forgetting
+Lambda = lambdaArray(LambdaNumber); %Initalise lambda, set to 1 for non-forgetting
+%Lambda = 0.95; %Initaluse lambda set to 0.95 for forgetting
 Theta=[]; % history of theta starts here
 % Step through data and for each new point generate a new estimate
 for n=1:length(y) % Change 10 to length(y) once you have the code working
@@ -47,7 +59,9 @@ end % and so it ends
 yfit = filter([0 theta(3) theta(4)], [1 theta(1) theta(2)], u);
 
 %hold on;
-figure('Name', 'Parameter Evolution ')
+%figure('Name', 'Parameter Evolution ')
+figure(LambdaNumber);
+subplot(2,1,1);
 plot(Theta)
 title('Theta vs Time')
 xlabel('time(t)')
@@ -55,7 +69,8 @@ ylabel('\theta')
 %title('
 
 %Plot the input and estimate on same graph to compare
-figure('Name', 'Actual Output vs estimated Ouput')
+%figure('Name', 'Actual Output vs estimated Ouput')
+subplot(2,1,2);
 hold on;
 plot(yfit);
 plot(y)
@@ -64,4 +79,5 @@ hold off
 title('Actual Output vs estimated Ouput')
 xlabel('time(t)')
 ylabel('y(t)')
+end
 

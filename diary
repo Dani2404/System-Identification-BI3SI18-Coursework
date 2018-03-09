@@ -1,0 +1,449 @@
+
+legend
+legend('output y', 'input u'},'location', 'best')
+ legend('output y', 'input u'},'location', 'best')
+                             
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+legend({'output y', 'input u'},'location', 'best')
+shg
+xlabel('sample number')
+ylabel('distance mm'
+ ylabel('distance mm'
+                     
+{Error: Expression or statement is incorrect--possibly unbalanced (, {, or [.
+} 
+ylabel('distance mm')shg
+ ylabel('distance mm')shg
+                      
+{Error: Unexpected MATLAB expression.
+} 
+ylabel('distance mm')
+shg
+dord2
+
+ans =
+
+         0    0.0308    0.0211
+
+help dord2
+        [num,den]=dord2(wn,z,T) - see assignment
+        Generate second order system sampled at T and with natural
+        frequency Wn and damping factor Z.
+        [A,B,C,D] = dord2(Wn, Z) returns the A,B,C,D representation of the
+        sampled second order system.
+        For a demo run dord without return arguments.
+
+[num,den]=dord2()
+
+num =
+
+         0    0.0408    0.0384
+
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+diary on
+diary diary
+help filter
+ <strong>filter</strong> One-dimensional digital filter.
+    Y = <strong>filter</strong>(B,A,X) filters the data in vector X with the
+    filter described by vectors A and B to create the filtered
+    data Y.  The filter is a "Direct Form II Transposed"
+    implementation of the standard difference equation:
+ 
+    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+ 
+    If a(1) is not equal to 1, <strong>filter</strong> normalizes the filter
+    coefficients by a(1). 
+ 
+    <strong>filter</strong> always operates along the first non-singleton dimension,
+    namely dimension 1 for column vectors and non-trivial matrices,
+    and dimension 2 for row vectors.
+ 
+    [Y,Zf] = <strong>filter</strong>(B,A,X,Zi) gives access to initial and final
+    conditions, Zi and Zf, of the delays.  Zi is a vector of length
+    MAX(LENGTH(A),LENGTH(B))-1, or an array with the leading dimension 
+    of size MAX(LENGTH(A),LENGTH(B))-1 and with remaining dimensions 
+    matching those of X.
+ 
+    <strong>filter</strong>(B,A,X,[],DIM) or <strong>filter</strong>(B,A,X,Zi,DIM) operates along the
+    dimension DIM.
+ 
+    Tip:  If you have the Signal Processing Toolbox, you can design a
+    filter, D, using DESIGNFILT.  Then you can use Y = <strong>filter</strong>(D,X) to
+    filter your data.
+ 
+    See also <a href="matlab:help filter2">filter2</a>, <a href="matlab:help filtfilt">filtfilt</a>, <a href="matlab:help filtic">filtic</a>, <a href="matlab:help designfilt">designfilt</a>.
+ 
+    Note: FILTFILT, FILTIC and DESIGNFILT are in the Signal Processing
+    Toolbox.
+
+    <a href="matlab:doc filter">Reference page for filter</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('filter')">Other functions named filter</a>
+
+u -rand(50,1) -.5
+{Error: "u" was previously used as a variable, conflicting with its use here as the name of a function
+or command.
+See <a href="matlab: helpview([docroot '/techdoc/matlab_prog/matlab_prog.map'],'function_call_command_syntax')">"How MATLAB Recognizes Command Syntax" in the MATLAB documentation</a> for details.
+} 
+u =rand(50,1) -.5
+
+u =
+
+    0.1324
+   -0.4025
+   -0.2215
+    0.0469
+    0.4575
+    0.4649
+   -0.3424
+    0.4706
+    0.4572
+   -0.0146
+    0.3003
+   -0.3581
+   -0.0782
+    0.4157
+    0.2922
+    0.4595
+    0.1557
+   -0.4643
+    0.3491
+    0.4340
+    0.1787
+    0.2577
+    0.2431
+   -0.1078
+    0.1555
+   -0.3288
+    0.2060
+   -0.4682
+   -0.2231
+   -0.4538
+   -0.4029
+    0.3235
+    0.1948
+   -0.1829
+    0.4502
+   -0.4656
+   -0.0613
+   -0.1184
+    0.2655
+    0.2952
+   -0.3131
+   -0.0102
+   -0.0544
+    0.1463
+    0.2094
+    0.2547
+   -0.2240
+    0.1797
+    0.1551
+   -0.3374
+
+hold off
+plot(u);shg
+y = filter(num, den, u)
+
+y =
+
+         0
+    0.0054
+   -0.0037
+   -0.0343
+   -0.0517
+   -0.0237
+    0.0464
+    0.0892
+    0.0928
+    0.0928
+    0.0699
+    0.0325
+   -0.0158
+   -0.0665
+   -0.0665
+   -0.0101
+    0.0714
+    0.1331
+    0.1147
+    0.0466
+    0.0006
+   -0.0142
+   -0.0031
+    0.0273
+    0.0460
+    0.0441
+    0.0162
+   -0.0183
+   -0.0506
+   -0.0830
+   -0.1016
+   -0.1075
+   -0.0687
+    0.0137
+    0.0768
+    0.1081
+    0.0863
+    0.0106
+   -0.0645
+   -0.0935
+   -0.0554
+   -0.0012
+    0.0322
+    0.0438
+    0.0386
+    0.0319
+    0.0310
+    0.0176
+   -0.0024
+   -0.0049
+
+hold on
+plot(y)
+shag
+{Undefined function or variable 'shag'.
+} 
+shgshg
+{Undefined function or variable 'shgshg'.
+} 
+shag
+{Undefined function or variable 'shag'.
+} 
+shg
+us = ones(50,1);
+plot(filter(num,den,us));shg
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+diary diary
+#Create the Phi maxtrix
+phi = [ - [0;y(1:end -1)] ];
+y(1:4)
+
+ans =
+
+         0
+    0.0054
+   -0.0037
+   -0.0343
+
+phi(1:4)
+
+ans =
+
+         0
+         0
+   -0.0054
+    0.0037
+
+diary diary
+#Shifted the value down by onephi = [ - [0;y(1:end -1)] -[0;0;y](1:end-2)];
+ phi = [ - [0;y(1:end -1)] -[0;0;y](1:end-2)];
+                                   
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+phi = [ - [0;y(1:end -1)] -[0;0;y(1:end-2)]];
+phi = [ - [0;y(1:end -1)] -[0;0;y(1:end-2)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+whos
+  Name           Size            Bytes  Class     Attributes
+
+  ans            4x1                32  double              
+  den            1x3                24  double              
+  fname          1x7                14  char                
+  num            1x3                24  double              
+  phi           50x4              1600  double              
+  ry           437x2              6992  double              
+  u             50x1               400  double              
+  us            50x1               400  double              
+  xhurl          1x76              152  char                
+  xp20d01      437x2              6992  double              
+  xp20d07      437x2              6992  double              
+  y             50x1               400  double              
+
+diary diary
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+(phi'*phi)\phi'*y #need backwards slash for divide, also " ' " means transpose
+
+ans =
+
+   -1.4089
+    0.8375
+    0.0408
+    0.0384
+
+diary diary
+#values of 'ans' closely match the values given in 'den' and 'num' --> almost perfect prediction
+ phi = [ - [0;y(1:end -1)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+theta = (phi'*phi)\phi'*y
+
+theta =
+
+   -0.7280
+    0.0324
+    0.0628
+
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+stem(y)
+shg
+hold off
+stem(y)
+shg
+yfit = filter([0 theta(2) theta(3),],[1, theta(1)], u);
+shg
+hold on
+stem(yfit)
+shg
+hold off
+plot(y); hold on; plot(yfit);
+shag
+{Undefined function or variable 'shag'.
+} 
+shg
+phi = [ - [0;y(1:end -1)] -[0;0;y(1:end-2)] [0;u(1:end-1)] [0;0;u(1:end-2)]]; #phi is predicting the model for perfect data
+diary diary
+phi = [ - [0;y(1:end -1)] -[0;0;y(1:end-2)] -[0;0;0;y(1:end-3)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+theta = (phi'*phi)\phi'*y
+
+theta =
+
+   -1.4089
+    0.8375
+    0.0000
+    0.0408
+    0.0384
+
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+diary diary
+#Now going to add noise to the output - Guassian Noise to outputy
+
+noise = y+randn(size(y)); #Where randn is the guassian noise for a normallly distributed 
+hold off
+ploy(y);hold on;ploy(ynoise)
+{Undefined function or variable 'ploy'.
+} 
+plot(y);hold on;plot(ynoise)
+shg
+diary diary #Too much noise, model is very inaccurate, from here down i kinda lost what he was doing :(
+ynoise = y+0.1*randn(size(y));
+hold on
+shg
+plot(y);hold on;plot(ynoise)
+shg
+hold off
+plot(y);hold on;plot(ynoise)
+shg
+phi = [ - [0;ynoise(1:end -1)] -[0;0;ynoiose(1:end-2)] -[0;0;0;ynoise(1:end-3)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+{Undefined function or variable 'ynoiose'.
+} 
+phi = [ - [0;ynoise(1:end -1)] -[0;0;ynoise(1:end-2)] -[0;0;0;ynoise(1:end-3)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+
+theta = (phi'*phi)\phi'*y
+
+theta =
+
+   -0.1777
+   -0.0467
+    0.1514
+    0.0454
+    0.0922
+
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+hold off
+yfit = filter([0 theta(2) theta(3),],[1, theta(1)], u);
+yfit = filter([0 theta(2) theta(3),],[1, theta(1), theta(2)], u);
+plot(y);hold on;plot(ynoise);
+shg
+ynoise = y+0.01*randn(size(y));
+phi = [ - [0;ynoise(1:end -1)] -[0;0;ynoise(1:end-2)] -[0;0;0;ynoise(1:end-3)] [0;u(1:end-1)] [0;0;u(1:end-2)]];
+theta = (phi'*phi)\phi'*y
+
+theta =
+
+   -0.9580
+    0.1674
+    0.3805
+    0.0375
+    0.0548
+
+plot(y);hold on;plot(ynoise);
+plot(yfit)
+num
+
+num =
+
+         0    0.0408    0.0384
+
+den
+
+den =
+
+    1.0000   -1.4089    0.8375
+
+yfit = filter([0 theta(2) theta(3),],[1, theta(1), theta(2)], u);
+plot(yfit)
+yfit = filter([0 theta(3) theta(4),],[1, theta(1), theta(2)], u);
+yfit = filter([0 theta(3) theta(4)],[1, theta(1), theta(2)], u);
+hold off
+plot(y)
+hold on
+plot(yfit)
+shg
+diary diary
+diary off --> DIARY IS ON BLACKBOARD

@@ -10,17 +10,22 @@ LN = 10000000;
 %[B,A] = dord2;
 %num = B;
 %den = A;
+
+%num and den are the numerator and denominator of the filter(PID
+%controller)
 num = [0 0.0416 0.0395];
-den = [1 -1.5363 0.8607];
+den = [1 -1.5363 0.8607];t
 u = 5 * sin(1:.2:70);
-noise = 0.01*randn(size(u)); %Change the varience in order to change nouse level, overall noise model should be 0 mean.
+%u = ones(1,50);
+%noise = 0.1*randn(size(u)); %Change the varience in order to change nouse level, overall noise model should be 0 mean.
 %noise =0.1*rand(size(u)); %Use rand as varience not set to 1, 
+noise = 0;
 y = filter(num, den, u) + noise;
 
 theta_nminus1=zeros(Na+Nb,1); % Initialise the estimate of theta to zero --> Matrix of zeros
 P_nminus1=LN.*eye(Na+Nb);	 % Initialise P where LN is a large number --> Data 
-%Lambda = 1; %Initalise lambda, set to 1 for non-forgetting
-Lambda = 0.95; %Initaluse lambda set to 0.95 for forgetting
+Lambda = 1; %Initalise lambda, set to 1 for non-forgetting
+%Lambda = 0.95; %Initaluse lambda set to 0.95 for forgetting
 Theta=[]; % history of theta starts here
 % Step through data and for each new point generate a new estimate
 for n=1:length(y) % Change 10 to length(y) once you have the code working

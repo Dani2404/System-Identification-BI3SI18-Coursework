@@ -71,6 +71,7 @@ end
 x = linspace(1998, 2017, 236);
 % Recorded parameter evolution you can plot with
 figure(1);
+subplot(3,1,1);
 plot(Theta);
 title('Parameter Evolution');
 xlabel('t'); ylabel('\theta(t)');
@@ -80,7 +81,7 @@ shg;
 % theta at postition 1 -> a1 etc
 % yfit=filter([num],[den])
 yfit=filter([0 theta(3) theta(4)],[1 theta(1) theta(2)],u);
-figure(2);
+subplot(3,1,2);
 % Plots actual output vs estimate output
 plot(y);
 hold on;
@@ -91,13 +92,13 @@ xlabel('t');ylabel('y(t)');
 hold off;
 shg;
 
-figure(3)
+figure(2)
 subplot(311);
 plot(x, y1); title('noise added signal');
 xlabel('date'); ylabel('GDP-Euro Exchange Rate');
 subplot(312);
 plot(x,y2); title('smoothed signal');
-xlabel('date'); ylabel('Moving Average');
+xlabel('date'); ylabel('GDP-Euro Exchange Rate');
 subplot(313);
 plot(x,yfit); title('estimated signal');xlabel('date'); ylabel('GDP-Euro Exchange Rate');
 xlabel('date'); ylabel('GDP-Euro Exchange Rate');
